@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Test yech</title><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#4c3fd1">
+<style>
+:root{--bg:#f4f1ff;--card:#fff;--ink:#1b1740;--mut:#6c678f;--line:#ddd8f5;--sh:rgba(40,30,120,.14);--c:#4c3fd1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120f2b;--card:#1d1942;--ink:#f1eeff;--mut:#a6a1d3;--line:#33306a;--sh:rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#120f2b;--card:#1d1942;--ink:#f1eeff;--mut:#a6a1d3;--line:#33306a;--sh:rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito","Trebuchet MS",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+.scr{display:none;max-width:480px;margin:0 auto;padding:18px 16px 28px;min-height:100vh;position:relative}
+.scr.on{display:block}
+h1,h2{margin:0;font-weight:900}
+#splash{text-align:center;padding-top:26vh}
+#splash .logo{font-size:56px;font-weight:900;letter-spacing:-1px;display:flex;justify-content:center;gap:2px}
+#splash .logo span{display:inline-block;opacity:0;transform:translateY(40px) rotate(-12deg) scale(.5);animation:pop .6s cubic-bezier(.2,1.6,.4,1) forwards;color:var(--c)}
+#splash .logo span:nth-child(3n){color:#f59f00}#splash .logo span:nth-child(3n+1){color:#0ca678}
+@keyframes pop{to{opacity:1;transform:none}}
+.bar{width:160px;height:6px;border-radius:9px;background:var(--line);margin:34px auto 0;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4c3fd1,#f59f00);animation:ld 2.4s ease-out forwards}
+@keyframes ld{to{width:100%}}
+.sub{color:var(--mut);margin-top:10px}
+input[type=text]{width:100%;padding:16px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:18px;margin:18px 0}
+input:focus,button:focus-visible,select:focus-visible{outline:3px solid #f59f00}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:16px;font:inherit;font-weight:800;font-size:18px;color:#fff;background:var(--c);box-shadow:0 6px 0 rgba(0,0,0,.2);cursor:pointer}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btn.g{background:var(--card);color:var(--ink);box-shadow:0 4px 0 var(--line);border:2px solid var(--line);margin-top:12px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.ic{border:0;background:var(--card);color:var(--ink);border-radius:14px;width:44px;height:44px;font-size:20px;box-shadow:0 2px 8px var(--sh);cursor:pointer}
+.grid{display:grid;gap:12px}
+.sj{display:flex;align-items:center;gap:14px;border:0;border-radius:22px;padding:18px;color:#fff;font:inherit;text-align:left;cursor:pointer;background:var(--c);box-shadow:0 8px 18px var(--sh);position:relative;overflow:hidden}
+.sj b{font-size:22px;display:block}.sj small{opacity:.85}.sj .e{font-size:38px;background:rgba(255,255,255,.2);width:62px;height:62px;display:grid;place-items:center;border-radius:18px;flex:none}
+.sj:active{transform:scale(.98)}
+label{display:block;font-weight:800;margin:16px 0 6px}
+select{width:100%;padding:14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:16px}
+.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bg span{position:absolute;color:var(--c);opacity:.11;font-weight:900}
+.z{position:relative;z-index:1}
+.pr{height:10px;background:var(--line);border-radius:9px;overflow:hidden;flex:1;margin:0 12px}
+.pr i{display:block;height:100%;background:var(--c);width:0;transition:width .3s}
+.q{background:var(--card);border-radius:24px;padding:26px 18px;margin:18px 0;box-shadow:0 8px 24px var(--sh);font-size:22px;font-weight:800;text-align:center;white-space:pre-line;line-height:1.4;border-bottom:6px solid var(--c)}
+.o{display:block;width:100%;margin-bottom:10px;padding:16px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:18px;font-weight:700;cursor:pointer;text-align:left}
+.o.ok{background:#2f9e44;border-color:#2f9e44;color:#fff}.o.no{background:#e03131;border-color:#e03131;color:#fff}
+.big{font-size:84px;font-weight:900;color:var(--c);text-align:center;line-height:1}
+.res{text-align:center;padding-top:8vh}
+.lang{display:flex;gap:8px}.lang button{flex:1;padding:14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}
+.lang button.on{border-color:var(--c);background:var(--c);color:#fff}
+.sg{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sg .nmx{flex:1;min-width:0;padding:12px;border-radius:14px;border:2px solid var(--line);background:var(--card);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.sg .on{border-color:var(--c)}
+.sg button,.sg label{margin:0;width:44px;height:44px;border-radius:14px;border:0;background:var(--c);color:#fff;font:inherit;font-weight:900;display:grid;place-items:center;cursor:pointer;flex:none}
+.sg .add{flex:1;width:auto;background:var(--card);color:var(--ink);border:2px dashed var(--line)}
+.sg input{display:none}
+#mp{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:none;gap:6px;background:var(--card);border-radius:20px;padding:6px;box-shadow:0 6px 20px var(--sh);align-items:center;max-width:70vw}
+#mp button{border:0;border-radius:14px;width:42px;height:42px;background:var(--c);color:#fff;font-size:18px;cursor:pointer}
+#mp span{font-size:12px;font-weight:800;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 4px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}
+</style></head><body>
+<div id="splash" class="scr on"><div class="logo" id="lg"></div><div class="sub" id="tg"></div><div class="bar"><i></i></div></div>
+<div id="nm" class="scr"><h1 id="nmT"></h1><input type="text" id="nmI" maxlength="20" autocomplete="off"><button class="btn" id="nmB"></button></div>
+<div id="home" class="scr"></div><div id="cfg" class="scr"></div><div id="quiz" class="scr"></div><div id="rs" class="scr"></div><div id="set" class="scr"></div>
+<div id="mp"><span id="mpt"></span><button id="mpb" aria-label="play">▶</button><button id="mpn" aria-label="next">⏭</button></div>
+<script>
+const $=id=>document.getElementById(id);
+const UI={
+uz:{tag:"Bilimingni sina!",ask:"Ismingiz nima?",ph:"Ismingiz",go:"Boshlash",hi:"Salom",pick:"Fanni tanlang",math:"Matematika",chem:"Kimyo",uz:"Ona tili",en:"Ingliz tili",iq:"IQ test",topic:"Mavzu",lvl:"Daraja",mix:"Aralash",all:"Barcha darajalar",start:"Boshlash",res:"Natija",again:"Qayta yechish",home:"Bosh menyu",set:"Sozlamalar",lang:"Til",nm:"Ismingiz",save:"Saqlash",back:"Orqaga",iqr:"Sizning IQ darajangiz",lab:["Past","O'rtacha","Yaxshi","Yuqori","Daho"],dsc:"savol",th:"Mavzu"},
+ru:{tag:"Проверь свои знания!",ask:"Как вас зовут?",ph:"Ваше имя",go:"Начать",hi:"Привет",pick:"Выберите предмет",math:"Математика",chem:"Химия",uz:"Родной язык",en:"Английский",iq:"IQ тест",topic:"Тема",lvl:"Уровень",mix:"Смешанно",all:"Все уровни",start:"Начать",res:"Результат",again:"Ещё раз",home:"Главное меню",set:"Настройки",lang:"Язык",nm:"Ваше имя",save:"Сохранить",back:"Назад",iqr:"Ваш уровень IQ",lab:["Низкий","Средний","Хороший","Высокий","Гений"],dsc:"вопросов",th:"Тема"},
+en:{tag:"Test your knowledge!",ask:"What's your name?",ph:"Your name",go:"Start",hi:"Hello",pick:"Choose a subject",math:"Math",chem:"Chemistry",uz:"Uzbek language",en:"English",iq:"IQ test",topic:"Topic",lvl:"Level",mix:"Mixed",all:"All levels",start:"Start",res:"Result",again:"Try again",home:"Main menu",set:"Settings",lang:"Language",nm:"Your name",save:"Save",back:"Back",iqr:"Your IQ level",lab:["Low","Average","Good","High","Genius"],dsc:"questions",th:"Topic"}};
+const LI={uz:0,ru:1,en:2};let lang="uz",user="";
+try{lang=localStorage.getItem("ty_l")||"uz";user=localStorage.getItem("ty_n")||""}catch(e){}
+const t=k=>UI[lang][k];
+const P=s=>(s.split("|")[LI[lang]]||s.split("|")[0]);
+const Q={
+sym:"{0} belgisi qaysi element?|Какой элемент обозначается {0}?|Which element has the symbol {0}?",nm:"{0} elementining belgisi?|Символ элемента {0}?|Symbol of {0}?",zn:"Tartib raqami {0} bo'lgan element?|Элемент с номером {0}?|Element with atomic number {0}?",zz:"{0} elementining tartib raqami?|Порядковый номер элемента {0}?|Atomic number of {0}?",mass:"{0} molyar massasi (g/mol)?|Молярная масса {0} (г/моль)?|Molar mass of {0} (g/mol)?",grp:"{0} elementi nechanchi A-guruhda?|В какой A-группе {0}?|Which A-group is {0} in?",fn:"{0} nima?|Что такое {0}?|What is {0}?",at:"{0} molekulasida jami nechta atom bor?|Сколько атомов всего в {0}?|Total atoms in {0}?",
+u2e:"«{0}» inglizchada?|«{0}» по-английски?|«{0}» in English?",e2u:"«{0}» o'zbekchada?|«{0}» по-узбекски?|«{0}» in Uzbek?",past:"{0} — Past Simple?",part:"{0} — Past Participle?",pl:"{0} — ko'plik?|{0} — мн. число?|Plural of {0}?",be:"Gapni to'ldiring:|Заполните:|Complete:",an:"{0} — antonimi?|Антоним к «{0}»?|Opposite of «{0}»?",sy:"{0} — sinonimi?|Синоним к «{0}»?|Synonym of «{0}»?",tk:"{0} — qaysi so'z turkumi?|Часть речи: {0}?|Part of speech: {0}?",
+sq:"Qatorni davom ettiring:|Продолжите ряд:|Continue the series:",odd:"Ortiqcha sonni toping:|Найдите лишнее число:|Find the odd one out:",ana:"Mantiqiy juftlik:|Логическая пара:|Logical pair:"};
+const f=(k,...a)=>P(Q[k]).replace(/\{(\d)\}/g,(_,i)=>a[i]);
+function R(s){let a=s>>>0;return()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const ri=(r,a,b)=>a+Math.floor(r()*(b-a+1)),pk=(r,x)=>x[Math.floor(r()*x.length)];
+const sh=(r,x)=>{x=[...x];for(let i=x.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
+const mk=(r,q,a,pool)=>{const d=sh(r,[...new Set(pool.map(String))].filter(v=>v!==String(a))).slice(0,3);const o=sh(r,[String(a),...d]);return{q,o,c:o.indexOf(String(a))}};
+const mkn=(r,q,a)=>{const m=Math.max(3,Math.round(Math.abs(a)*.15)),s=new Set();let g=0;while(s.size<3&&g++<60){const k=ri(r,1,m)*(r()<.5?-1:1);s.add(a+k)}return mk(r,q,a,[a,...s])};
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+// ---------- MATH (20 mavzu x 10 daraja = 200)
+const MA=[["Qo'shish",(r,L,n)=>{const a=ri(r,n,3*n),b=ri(r,n,3*n);return[`${a} + ${b} = ?`,a+b]}],
+["Ayirish",(r,L,n)=>{const a=ri(r,2*n,4*n),b=ri(r,n,2*n);return[`${a} − ${b} = ?`,a-b]}],
+["Ko'paytirish",(r,L)=>{const m=Math.min(12+3*L,60),a=ri(r,2,m),b=ri(r,2,m);return[`${a} × ${b} = ?`,a*b]}],
+["Bo'lish",(r,L)=>{const b=ri(r,2,L+4),c=ri(r,2,12+2*L);return[`${b*c} ÷ ${b} = ?`,c]}],
+["Kvadrat",(r,L)=>{const a=ri(r,2,L+5);return[`${a}² = ?`,a*a]}],
+["Kvadrat ildiz",(r,L)=>{const a=ri(r,2,L+5);return[`√${a*a} = ?`,a]}],
+["Foiz",(r,L)=>{const x=20*ri(r,1,5*L),p=pk(r,[10,20,25,50]);return[`${x} ning ${p}% i = ?`,x*p/100]}],
+["Tenglama x + a = b",(r,L,n)=>{const x=ri(r,1,n),a=ri(r,1,n);return[`x + ${a} = ${x+a}\nx = ?`,x]}],
+["Ikki amalli tenglama",(r,L,n)=>{const x=ri(r,1,L+5),a=ri(r,2,9),b=ri(r,1,n);return[`${a}x + ${b} = ${a*x+b}\nx = ?`,x]}],
+["Daraja",(r,L)=>{const a=ri(r,2,L<4?4:7),k=ri(r,2,L<5?2:4);return[`${a}^${k} = ?`,a**k]}],
+["Qoldiq",(r,L,n)=>{const b=ri(r,2,L+5),a=ri(r,b+1,n*3);return[`${a} ni ${b} ga bo'lgandagi qoldiq?`,a%b]}],
+["EKUB",(r,L)=>{const g=ri(r,2,L+4),a=g*ri(r,2,5+L),b=g*ri(r,2,5+L);return[`EKUB(${a}, ${b}) = ?`,gcd(a,b)]}],
+["EKUK",(r,L)=>{const a=ri(r,2,L+5),b=ri(r,2,L+5);return[`EKUK(${a}, ${b}) = ?`,a*b/gcd(a,b)]}],
+["O'rta arifmetik",(r,L,n)=>{const a=ri(r,n,3*n),b=ri(r,n,3*n);let c=ri(r,n,3*n);c+=(3-(a+b+c)%3)%3;return[`${a}, ${b}, ${c} ning o'rtachasi?`,(a+b+c)/3]}],
+["To'rtburchak yuzi",(r,L)=>{const a=ri(r,2,5+3*L),b=ri(r,2,5+3*L);return[`Tomonlari ${a} va ${b} bo'lgan to'g'ri to'rtburchak yuzi?`,a*b]}],
+["Perimetr",(r,L)=>{const a=ri(r,2,5+3*L),b=ri(r,2,5+3*L);return[`Tomonlari ${a} va ${b} bo'lgan to'g'ri to'rtburchak perimetri?`,2*(a+b)]}],
+["Amallar tartibi",(r,L)=>{const a=ri(r,2,10*L),b=ri(r,2,5+L),c=ri(r,2,5+L);return[`${a} + ${b} × ${c} = ?`,a+b*c]}],
+["Manfiy sonlar",(r,L,n)=>{const a=ri(r,1,n),b=ri(r,a+1,a+n);return[`${a} − ${b} = ?`,a-b]}],
+["Ketma-ket yig'indi",(r,L)=>{const k=ri(r,3,L+8);return[`1 + 2 + … + ${k} = ?`,k*(k+1)/2]}],
+["Kasr",(r,L)=>{const k=ri(r,2,5),x=k*ri(r,2,4*L+4);return[`${x} ning 1/${k} qismi?`,x/k]}]];
+// ---------- KIMYO
+const EL="H,Vodorod,1;He,Geliy,2;Li,Litiy,3;Be,Berilliy,4;B,Bor,5;C,Uglerod,6;N,Azot,7;O,Kislorod,8;F,Ftor,9;Ne,Neon,10;Na,Natriy,11;Mg,Magniy,12;Al,Alyuminiy,13;Si,Kremniy,14;P,Fosfor,15;S,Oltingugurt,16;Cl,Xlor,17;Ar,Argon,18;K,Kaliy,19;Ca,Kalsiy,20;Fe,Temir,26;Cu,Mis,29;Zn,Rux,30;Ag,Kumush,47;Au,Oltin,79".split(";").map(s=>s.split(","));
+const GR={H:1,Li:1,Na:1,K:1,Be:2,Mg:2,Ca:2,B:3,Al:3,C:4,Si:4,N:5,P:5,O:6,S:6,F:7,Cl:7,He:8,Ne:8,Ar:8};
+const AM={H:1,C:12,N:14,O:16,Na:23,Mg:24,Al:27,S:32,Cl:35.5,K:39,Ca:40,Fe:56};
+const FM=[["H2O","suv|вода|water"],["CO2","karbonat angidrid|углекислый газ|carbon dioxide"],["NaCl","osh tuzi|поваренная соль|table salt"],["NH3","ammiak|аммиак|ammonia"],["CH4","metan|метан|methane"],["HCl","xlorid kislota|соляная кислота|hydrochloric acid"],["CaCO3","ohaktosh|известняк|limestone"],["H2SO4","sulfat kislota|серная кислота|sulfuric acid"],["C6H12O6","glyukoza|глюкоза|glucose"],["O2","kislorod|кислород|oxygen"],["NaOH","o'yuvchi natriy|едкий натр|caustic soda"],["Fe2O3","temir(III) oksidi|оксид железа(III)|iron(III) oxide"],["MgO","magniy oksidi|оксид магния|magnesium oxide"],["KOH","o'yuvchi kaliy|едкое кали|caustic potash"],["Al2O3","alyuminiy oksidi|оксид алюминия|aluminium oxide"],["C2H6","etan|этан|ethane"],["SO2","oltingugurt(IV) oksidi|оксид серы(IV)|sulfur dioxide"],["Na2CO3","soda|сода|soda ash"],["CaO","so'ndirilmagan ohak|негашёная известь|quicklime"],["HNO3","nitrat kislota|азотная кислота|nitric acid"]];
+const par=s=>[...s.matchAll(/([A-Z][a-z]?)(\d*)/g)].map(m=>[m[1],+(m[2]||1)]);
+const mm=s=>par(s).reduce((a,[e,n])=>a+AM[e]*n,0);
+const els=L=>EL.slice(0,Math.min(25,5+2*L));
+const CH=[["Belgi → element",(r,L)=>{const p=els(L),e=pk(r,p);return mk(r,f("sym",e[0]),e[1],p.map(x=>x[1]))}],
+["Element → belgi",(r,L)=>{const p=els(L),e=pk(r,p);return mk(r,f("nm",e[1]),e[0],p.map(x=>x[0]))}],
+["Tartib raqami → element",(r,L)=>{const p=els(L),e=pk(r,p);return mk(r,f("zn",e[2]),e[1],p.map(x=>x[1]))}],
+["Element → tartib raqami",(r,L)=>{const p=els(L),e=pk(r,p);return mk(r,f("zz",e[1]),e[2],p.map(x=>x[2]))}],
+["Molyar massa",(r,L)=>{const p=FM.slice(0,Math.min(20,6+2*L)).filter(x=>!/Fe|C6|C2H6/.test(x[0])||L>4),e=pk(r,p),a=mm(e[0]);return mkn(r,f("mass",e[0]),a)}],
+["A-guruh raqami",(r,L)=>{const p=EL.filter(x=>GR[x[0]]).slice(0,Math.min(18,6+2*L)),e=pk(r,p);return mk(r,f("grp",e[1]),GR[e[0]],[1,2,3,4,5,6,7,8])}],
+["Moddalar nomi",(r,L)=>{const p=FM.slice(0,Math.min(20,6+2*L)),e=pk(r,p);return mk(r,f("fn",e[0]),P(e[1]),p.map(x=>P(x[1])))}],
+["Atomlar soni",(r,L)=>{const p=FM.slice(0,Math.min(20,6+2*L)),e=pk(r,p),a=par(e[0]).reduce((s,x)=>s+x[1],0);return mkn(r,f("at",e[0]),a)}]];
+// ---------- INGLIZ TILI
+const V="kitob,book;uy,house;suv,water;non,bread;olma,apple;mushuk,cat;it,dog;quyosh,sun;oy,moon;daraxt,tree;maktab,school;o'qituvchi,teacher;do'st,friend;oila,family;ona,mother;ota,father;katta,big;kichik,small;issiq,hot;sovuq,cold;tez,fast;sekin,slow;yangi,new;eski,old;qizil,red;ko'k,blue;yashil,green;oq,white;qora,black;kun,day;tun,night;shahar,city;qo'l,hand;ko'z,eye;yugurmoq,run;yemoq,eat;ichmoq,drink;uxlamoq,sleep;o'qimoq,read;yozmoq,write".split(";").map(s=>s.split(","));
+const IV="go,went,gone;eat,ate,eaten;see,saw,seen;take,took,taken;write,wrote,written;drink,drank,drunk;speak,spoke,spoken;buy,bought,bought;begin,began,begun;break,broke,broken;come,came,come;give,gave,given;know,knew,known;run,ran,run;swim,swam,swum".split(";").map(s=>s.split(","));
+const PL="child,children;man,men;woman,women;foot,feet;tooth,teeth;mouse,mice;person,people;goose,geese;leaf,leaves;knife,knives".split(";").map(s=>s.split(","));
+const BE=[["I","am","was"],["He","is","was"],["She","is","was"],["It","is","was"],["We","are","were"],["You","are","were"],["They","are","were"]];
+const AE="big,small;hot,cold;fast,slow;new,old;happy,sad;early,late;open,close;rich,poor;easy,difficult;strong,weak".split(";").map(s=>s.split(","));
+const sl=(a,L)=>a.slice(0,Math.min(a.length,6+2*L));
+const EN=[["Uz → Eng",(r,L)=>{const p=sl(V,L+2),e=pk(r,p);return mk(r,f("u2e",e[0]),e[1],p.map(x=>x[1]))}],
+["Eng → Uz",(r,L)=>{const p=sl(V,L+2),e=pk(r,p);return mk(r,f("e2u",e[1]),e[0],p.map(x=>x[0]))}],
+["Past Simple",(r,L)=>{const p=sl(IV,L),e=pk(r,p);return mk(r,f("past",e[0]),e[1],p.map(x=>x[1]).concat(p.map(x=>x[2])))}],
+["Past Participle",(r,L)=>{const p=sl(IV,L),e=pk(r,p);return mk(r,f("part",e[0]),e[2],p.map(x=>x[2]).concat(p.map(x=>x[1])))}],
+["Ko'plik shakli",(r,L)=>{const p=sl(PL,L),e=pk(r,p);return mk(r,f("pl",e[0]),e[1],p.map(x=>x[1]).concat(p.map(x=>x[0]+"s")))}],
+["To be",(r,L)=>{const e=pk(r,BE),pt=L>5&&r()<.5;return mk(r,f("be")+"\n"+(pt?"Yesterday ":"")+e[0]+" ___ here.",pt?e[2]:e[1],["am","is","are","was","were"])}],
+["Antonimlar",(r,L)=>{const p=sl(AE,L),e=pk(r,p),s=r()<.5;return mk(r,f("an",e[s?0:1]),e[s?1:0],p.flat())}]];
+// ---------- ONA TILI
+const UA="katta,kichik;yaxshi,yomon;issiq,sovuq;tez,sekin;baland,past;yangi,eski;oq,qora;kun,tun;kelmoq,ketmoq;ochiq,yopiq;boy,kambag'al;to'g'ri,noto'g'ri;yosh,qari;uzoq,yaqin;shirin,achchiq".split(";").map(s=>s.split(","));
+const US="chiroyli,go'zal;jasur,botir;aqlli,dono;xursand,shod;maqsad,niyat;do'st,o'rtoq;olim,donishmand;ulkan,katta;tez,chaqqon;ona,oyi".split(";").map(s=>s.split(","));
+const UT=[["kitob",0],["daraxt",0],["maktab",0],["qalam",0],["katta",1],["chiroyli",1],["qizil",1],["shirin",1],["yozmoq",2],["kelmoq",2],["o'qimoq",2],["ketmoq",2]];
+const PT=[["ot","sifat","fe'l","son"],["сущ.","прил.","глагол","числ."],["noun","adjective","verb","numeral"]];
+const NO="kitob,daraxt,maktab,qalam,uy,bola,gul,stol,shahar,qush,mashina,daftar".split(",");
+const UZ=[["Antonimlar",(r,L)=>{const p=sl(UA,L),e=pk(r,p),s=r()<.5;return mk(r,f("an",e[s?0:1]),e[s?1:0],p.flat())}],
+["Sinonimlar",(r,L)=>{const p=sl(US,L),e=pk(r,p),s=r()<.5;return mk(r,f("sy",e[s?0:1]),e[s?1:0],p.flat())}],
+["So'z turkumlari",(r,L)=>{const e=pk(r,UT.slice(0,Math.min(12,4+L)));const pt=PT[LI[lang]];return mk(r,f("tk",e[0]),pt[e[1]],pt)}],
+["Ko'plik qo'shimchasi",(r,L)=>{const w=pk(r,NO.slice(0,Math.min(12,4+L)));return mk(r,f("pl",w),w+"lar",[w+"lar",w+"ler",w+"ar",w+"dir"])}]];
+// ---------- IQ
+const IQ=[["Arifmetik qator",(r,L)=>{const s=ri(r,1,20),d=ri(r,2,3+2*L),a=[0,1,2,3,4].map(i=>s+d*i);return mkn(r,f("sq")+"\n"+a.join(", ")+", ?",s+5*d)}],
+["Geometrik qator",(r,L)=>{const s=ri(r,1,3),k=ri(r,2,L<4?3:4),a=[0,1,2,3].map(i=>s*k**i);return mkn(r,f("sq")+"\n"+a.join(", ")+", ?",s*k**4)}],
+["Kvadratlar/kublar",(r,L)=>{const s=ri(r,1,4+L),p=L<5?2:3,a=[0,1,2,3].map(i=>(s+i)**p);return mkn(r,f("sq")+"\n"+a.join(", ")+", ?",(s+4)**p)}],
+["Ikkita qator",(r,L)=>{const a=ri(r,1,10),b=ri(r,20,40),d=ri(r,2,3+L),e=ri(r,2,3+L);return mkn(r,f("sq")+"\n"+[a,b,a+d,b+e,a+2*d].join(", ")+", ?",b+2*e)}],
+["Ortiqcha son",(r,L)=>{const k=ri(r,2,4+L),m=sh(r,[1,2,3,4,5,6,7,8]).slice(0,3).map(x=>x*k);let o;do{o=ri(r,3,40)}while(o%k===0);return mk(r,f("odd"),o,[...m,o])}],
+["Mantiqiy juftlik",(r,L)=>{const k=ri(r,2,3+Math.ceil(L/2)),a=ri(r,2,9),b=ri(r,2,12);return mkn(r,f("ana")+"\n"+a+" : "+a*k+" = "+b+" : ?",b*k)}],
+["Fibonachchi qator",(r,L)=>{const a=ri(r,1,5),b=ri(r,2,7),x=[a,b];for(let i=0;i<4;i++)x.push(x[i]+x[i+1]);return mkn(r,f("sq")+"\n"+x.slice(0,5).join(", ")+", ?",x[5])}],
+["Ortib boruvchi ayirma",(r,L)=>{const s=ri(r,1,9),d=ri(r,1,3),x=[s];for(let i=0;i<5;i++)x.push(x[i]+d+i*(L>5?2:1));return mkn(r,f("sq")+"\n"+x.slice(0,5).join(", ")+", ?",x[5])}]];
+const SUB={math:{k:MA,c:"#3b5bdb",e:"➗",s:["π","∑","√","÷","×","+","−","∞","∫","x²","∠","△","%","="],salt:11},chem:{k:CH,c:"#0ca678",e:"⚗️",s:["H₂O","⚛","Na","Cl","CO₂","Fe","⚗","pH","Au","O₂"],salt:23},uz:{k:UZ,c:"#e8590c",e:"📖",s:["O'","G'","Sh","Ch","A","Ng","Ё","?","!"],salt:37},en:{k:EN,c:"#ae3ec9",e:"🔤",s:["Aa","Bb","ABC","the","to be","Hi","?","Zz"],salt:41},iq:{k:IQ,c:"#d6336c",e:"🧠",s:["?","∞","◇","1·2·3","△","⊕","7","∑"],salt:53}};
+const gen=(sj,id)=>{const S=SUB[sj],T=S.k.length*10,tt=id%T,ki=Math.floor(tt/10),L=tt%10+1,r=R(id*7919+S.salt),n=Math.ceil(4*Math.pow(1.55,L)),o=S.k[ki][1](r,L,n);let q;if(sj==="math"){q=mkn(r,o[0],o[1])}else q=o;q.L=L;return q};
+// ---------- UI
+let cur,sess;
+const show=id=>{document.querySelectorAll(".scr").forEach(e=>e.classList.toggle("on",e.id===id));window.scrollTo(0,0)};
+const setC=c=>document.documentElement.style.setProperty("--c",c);
+function splash(){$("lg").innerHTML=[..."Test yech"].map((c,i)=>`<span style="animation-delay:${i*.09}s">${c===" "?"&nbsp;":c}</span>`).join("");$("tg").textContent=t("tag");setTimeout(()=>user?home():askName(),2700)}
+function askName(){$("nmT").textContent=t("ask");$("nmI").placeholder=t("ph");$("nmB").textContent=t("go");setC("#4c3fd1");show("nm")}
+$("nmB").onclick=()=>{const v=$("nmI").value.trim();if(!v){$("nmI").focus();return}user=v;try{localStorage.setItem("ty_n",v)}catch(e){}home()};
+function home(){setC("#4c3fd1");$("home").innerHTML=`<div class="top"><div><h2>${t("hi")}, ${user}!</h2><div class="sub" style="margin:2px 0 0">${t("pick")}</div></div><button class="ic" id="gb" aria-label="${t("set")}">⚙️</button></div><div class="grid">`+Object.keys(SUB).map(k=>`<button class="sj" data-s="${k}" style="background:${SUB[k].c}"><span class="e">${SUB[k].e}</span><span><b>${t(k)}</b><small>1000 ${t("dsc")} · ${SUB[k].k.length*10} ${t("th").toLowerCase()}</small></span></button>`).join("")+`</div>`;
+$("gb").onclick=settings;document.querySelectorAll(".sj").forEach(b=>b.onclick=()=>config(b.dataset.s));show("home")}
+function config(sj){cur=sj;setC(SUB[sj].c);const K=SUB[sj].k;
+$("cfg").innerHTML=`<div class="top"><button class="ic" id="bk">←</button><h2>${SUB[sj].e} ${t(sj)}</h2><span style="width:44px"></span></div>`+(sj==="iq"?`<p class="sub">10 ${t("dsc")} → IQ</p>`:`<label>${t("topic")}</label><select id="tp"><option value="-1">${t("mix")}</option>${K.map((x,i)=>`<option value="${i}">${x[0]}</option>`).join("")}</select><label>${t("lvl")}</label><select id="lv"><option value="0">${t("all")}</option>${[1,2,3,4,5,6,7,8,9,10].map(i=>`<option>${i}</option>`).join("")}</select>`)+`<div style="height:22px"></div><button class="btn" id="st">${t("start")}</button>`;
+$("bk").onclick=home;$("st").onclick=()=>begin(sj,sj==="iq"?-1:+$("tp").value,sj==="iq"?0:+$("lv").value);show("cfg")}
+function begin(sj,ki,lv){const S=SUB[sj],T=S.k.length*10;let ids=[];
+if(sj==="iq"||(ki<0&&lv===0&&false)){for(let L=1;L<=10;L++){const c=[];for(let i=0;i<1000;i++)if(i%10===L-1)c.push(i);ids.push(c[Math.floor(Math.random()*c.length)])}}
+else{const c=[];for(let i=0;i<1000;i++){const tt=i%T,k=Math.floor(tt/10),L=tt%10+1;if((ki<0||k===ki)&&(lv===0||L===lv))c.push(i)}ids=c.sort(()=>Math.random()-.5).slice(0,10)}
+sess={sj,ids:ids.sort(()=>Math.random()-.5),i:0,ok:0,w:0,tw:0};quiz()}
+function quiz(){const s=sess,S=SUB[s.sj];setC(S.c);if(s.i>=s.ids.length)return result();
+const q=gen(s.sj,s.ids[s.i]);s.q=q;
+const bg=Array.from({length:16},(_,i)=>`<span style="left:${(i*37)%88}%;top:${(i*53)%90}%;font-size:${34+(i*13)%46}px;transform:rotate(${(i*29)%70-35}deg)">${S.s[i%S.s.length]}</span>`).join("");
+$("quiz").innerHTML=`<div class="bg">${bg}</div><div class="z"><div class="top"><button class="ic" id="qb">✕</button><div class="pr"><i style="width:${s.i/s.ids.length*100}%"></i></div><b>${s.i+1}/${s.ids.length}</b></div><div class="q">${q.q.replace(/</g,"&lt;")}</div>${q.o.map((o,i)=>`<button class="o" data-i="${i}">${o}</button>`).join("")}</div>`;
+$("qb").onclick=home;let done=0;document.querySelectorAll(".o").forEach(b=>b.onclick=()=>{if(done)return;done=1;const i=+b.dataset.i,all=document.querySelectorAll(".o");all[q.c].classList.add("ok");s.tw+=q.L;if(i===q.c){s.ok++;s.w+=q.L}else b.classList.add("no");setTimeout(()=>{s.i++;quiz()},900)});show("quiz")}
+function result(){const s=sess,S=SUB[s.sj];let h=`<div class="res"><h2>${t("res")}</h2><div class="sub">${t(s.sj)}</div><div class="big" style="margin:22px 0">${s.ok}/${s.ids.length}</div>`;
+if(s.sj==="iq"){const q=70+Math.round(70*s.w/s.tw),i=q<85?0:q<100?1:q<115?2:q<130?3:4;h+=`<div class="sub">${t("iqr")}</div><div class="big" style="font-size:64px">${q}</div><h2 style="margin:8px 0 22px">${t("lab")[i]}</h2>`}
+h+=`<button class="btn" id="ag">${t("again")}</button><button class="btn g" id="hm">${t("home")}</button></div>`;$("rs").innerHTML=h;
+$("ag").onclick=()=>config(s.sj);$("hm").onclick=home;show("rs")}
+function settings(){setC("#4c3fd1");$("set").innerHTML=`<div class="top"><button class="ic" id="sb">←</button><h2>${t("set")}</h2><span style="width:44px"></span></div><label>${t("lang")}</label><div class="lang">${[["uz","O'zbek"],["ru","Русский"],["en","English"]].map(l=>`<button data-l="${l[0]}" class="${lang===l[0]?"on":""}">${l[1]}</button>`).join("")}</div><label>${t("nm")}</label><input type="text" id="sn" value="${user}" maxlength="20"><label>${t("mus")}</label><div id="ml"></div><div style="height:12px"></div><button class="btn" id="ss">${t("save")}</button>`;
+$("sb").onclick=home;document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{lang=b.dataset.l;try{localStorage.setItem("ty_l",lang)}catch(e){}settings()});
+$("ss").onclick=()=>{const v=$("sn").value.trim();if(v){user=v;try{localStorage.setItem("ty_n",v)}catch(e){}}home()};renderMusic();show("set")}
+Object.assign(UI.uz,{mus:"Musiqa (8 tagacha qo'shiq)",addm:"+ Qo'shiq tanlash"});
+Object.assign(UI.ru,{mus:"Музыка (до 8 песен)",addm:"+ Выбрать песню"});
+Object.assign(UI.en,{mus:"Music (up to 8 songs)",addm:"+ Choose song"});
+const SG=[],au=new Audio();let cs=-1;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const idb=()=>new Promise((ok,no)=>{const q=indexedDB.open("ty",1);q.onupgradeneeded=()=>q.result.createObjectStore("m");q.onsuccess=()=>ok(q.result);q.onerror=no});
+async function dbOp(fn){try{const d=await idb();return await new Promise((ok,no)=>{const tx=d.transaction("m","readwrite"),r=fn(tx.objectStore("m"));tx.oncomplete=()=>ok(r.result);tx.onerror=no})}catch(e){}}
+async function loadSongs(){const a=await dbOp(s=>s.getAll())||[];a.forEach(v=>{SG[v.slot]=v});mp();renderMusic()}
+const filled=()=>SG.map((s,i)=>s?i:-1).filter(i=>i>=0);
+function play(i){if(!SG[i])return;try{URL.revokeObjectURL(au.src)}catch(e){}au.src=URL.createObjectURL(SG[i].blob);cs=i;au.play().catch(()=>{});mp();renderMusic()}
+function nxt(){const f=filled();if(!f.length)return;play(f.find(i=>i>cs)??f[0])}
+function mp(){const f=filled(),b=$("mp");b.style.display=f.length?"flex":"none";$("mpb").textContent=au.paused?"▶":"⏸";$("mpt").textContent=cs>=0&&SG[cs]?SG[cs].name:""}
+au.onplay=au.onpause=mp;au.onended=nxt;
+$("mpb").onclick=()=>{if(cs<0||!SG[cs]){nxt();return}au.paused?au.play():au.pause()};$("mpn").onclick=nxt;
+function renderMusic(){const el=$("ml");if(!el)return;el.innerHTML=[0,1,2,3,4,5,6,7].map(i=>SG[i]?`<div class="sg"><button data-p="${i}">${cs===i&&!au.paused?"⏸":"▶"}</button><div class="nmx ${cs===i?"on":""}">${esc(SG[i].name)}</div><button data-d="${i}" style="background:#e03131">✕</button></div>`:`<div class="sg"><label class="add">${t("addm")}<input type="file" accept="audio/*" data-a="${i}"></label></div>`).join("");
+el.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const i=+b.dataset.p;if(cs===i&&au.src){au.paused?au.play():au.pause()}else play(i);setTimeout(renderMusic,50)});
+el.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{const i=+b.dataset.d;if(cs===i){au.pause();cs=-1}delete SG[i];dbOp(s=>s.delete(i));mp();renderMusic()});
+el.querySelectorAll("[data-a]").forEach(inp=>inp.onchange=()=>{const fl=inp.files[0];if(!fl)return;const i=+inp.dataset.a;SG[i]={slot:i,name:fl.name.replace(/\.[^.]+$/,""),blob:fl};dbOp(s=>s.put(SG[i],i));mp();renderMusic()})}
+loadSongs();
+splash();
+</script></body></html>
